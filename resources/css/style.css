@@ -1,0 +1,120 @@
+/* Choose the fonts styles that we like */
+body{
+	font-family:"Open Sans", "Noto Sans", sans-serif, sans;
+	color:#333; /* A not-so-pure black color makes things look cleaner */
+}
+
+/* This makes boxes not increase in size when adding a padding */
+*{
+	box-sizing:border-box;
+}
+
+/* Sets the colors in the left sidebar or top bar */
+.menubar{
+	background-color:#08c;
+	color:white;
+}
+
+/* Positions the actual menu */
+.menubar .menu{
+	text-align:center;
+	padding:10px;
+}
+
+/* Title should be bold and capitalized */
+/* Title is now hidden */
+.menubar .menu .title{
+	font-weight:bold;
+	font-size:24pt;
+	display:none;
+}
+
+.menubar .menu .logo{
+	margin: auto;
+}
+
+/* Subtitle should be thinner and smaller than the title */
+.menubar .menu .subtitle{
+	font-weight:300;
+	font-size:12pt;
+	opacity:0.8;
+}
+
+/* Make a smooth button with no background */
+.menubar .menu .pure-button{
+	background-color:transparent;
+	border:2px solid rgba(255,255,255,0.8);
+	color:white;
+	margin:5px 0px;
+	padding:6px;
+}
+
+/* A different style for the logout button. Probably make it slightly reddish? */
+.menubar .menu .logout-button{
+	border:2px solid rgba(255,200,200,0.8);
+}
+
+/* Override the fading background effect of pure.css */
+.menubar .menu .pure-button:hover{
+	background:rgba(255,255,255,0.1);
+	border:2px solid rgba(255,255,255,0.9);
+}
+
+/* We want padding for contents of course */
+.content{
+	padding:10px;
+}
+
+.content p{
+	text-indent:2em;
+	text-align:justify;
+}
+
+/* Minimum width is dependent on the -md- specification for pure.css grids */
+@media (min-width: 48em) {
+	.menubar{
+		position:fixed;
+		top:0;
+		bottom:0;
+		box-shadow:-5px 0px 10px rgba(0,0,0,0.1) inset;
+	}
+	
+	.menubar .menu{
+		text-align:center;
+		padding:0px;
+	}
+	
+
+/* Put offset in content if the menubar is at the left */
+	.content{
+		margin-left:20%;
+	}
+	
+	.menubar .menu .pure-button,.menubar .menu .pure-button:hover{
+		border:none;
+		background-color:rgba(0,0,0,0.3);
+		width:100%;
+		margin:0px;
+		border-bottom:thin solid rgba(255,255,255,0.3);
+	}
+	
+	.menubar .menu .pure-button:hover{
+		background-color:rgba(0,0,0,0.1);
+	}
+}
+
+/*Sorry for the bad code below. I can't center the divs*/
+.centered{
+	margin-left: 30%;
+	padding-top: 100px;
+}
+.centered img{
+	margin-left: 17%;
+} 
+.centered .pure-controls{
+	margin-left: 24%;
+}
+.Addroomform{
+	margin-left: 30%;
+	letter-spacing: 0em;
+}
