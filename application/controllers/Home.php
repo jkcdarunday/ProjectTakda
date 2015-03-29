@@ -18,6 +18,8 @@ class Home extends CI_Controller
 	{
 		$this->load->helper('url');
 		
+		$this->load->view('partials/opening');
 		$this->load->view('home');
+		$this->load->view('partials/closing');
 	}
 }
