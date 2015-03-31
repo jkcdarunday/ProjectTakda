@@ -16,11 +16,11 @@ CSS Code
 Javascript Code
 ---------------
 
-Model, View, and Controller
----------------------------
+Models, Views, and Controllers
+------------------------------
 
 ### Models
 
-### Controllers
-
 ### Views
+
+### Controllers
