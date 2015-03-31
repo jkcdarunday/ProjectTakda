@@ -21,9 +21,17 @@ The following rules are to be followed when it comes to PHP code:
 
 HTML Code
 ---------
+  * Tabs are to be used for indentation
+  * Every opening tag will cause the next line to be indented unless closed in the same line
+  * Closing tags shall be in a line of their own if the contents of the two matching tags are multiline
+  * Closing tags shall be in the same line as the opening tag if the content is a single line
+  * Closing tags on their own line will cause unindentation
 
 CSS Code
 --------
+  * Tabs are to be used for indentation
+  * Every opening bracket will cause the next line to be indented unless closed in the same line
+  * Every closing bracket unindents
 
 Javascript Code
 ---------------
@@ -32,7 +40,16 @@ Models, Views, and Controllers
 ------------------------------
 
 ### Models
+  * These shall be named after the table that they are accessing
+  * Only one model should signify one table
+  * Filenames should be the same as the classname of the model object
+  * Filenames shall have the same capitalization as classnames
 
 ### Views
+  * Filenames shall have no capitalization nor underscores
 
 ### Controllers
+  * These shall have the same name as the model that they use
+  * Multiple controllers may use the same model or view
+  * Filenames should be the same as the classname of the controller object
+  * Filenames shall have the same capitalization as classnames
