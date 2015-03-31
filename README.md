@@ -6,6 +6,7 @@ Coding Conventions
 
 PHP Code
 --------
+The following rules are to be followed when it comes to PHP code:
 	* Tabs are to be used for indentation
 	* Lines should not exceed 80 characters.
 	* Opening braces for class and procedure declarations shall always be in a line of its own following the declaration statement.
