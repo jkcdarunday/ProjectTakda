@@ -101,7 +101,7 @@
 				drawTextCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, text, textSize, textFont, textColor);
 			}
 		
-			function loadSched(sched){
+			function initializeSched(sched){
 				var c=sched.getContext("2d");
 				
 				rowHeight = sched.height/13;
@@ -128,7 +128,52 @@
 				}
 				
 				//c, colWidth, rowHeight, <Days since Monday>, <Starting in hours since 7AM>, <Ending in hours since 7AM>, <Color>, <Label>, <Label Size>, <Label Font>, <Label Color>
-				drawSched(c, colWidth, rowHeight, 3, 1.5, 3.25, "#555", "CMSC128", 10, "Sans", "white");
-				drawSched(c, colWidth, rowHeight, 2, 3.25, 5.5, "#C84", "CMSC128", 10, "Sans", "white");
+//				drawSched(c, colWidth, rowHeight, 3, 1.5, 3.25, "#555", "CMSC128", 10, "Sans", "white");
+//				drawSched(c, colWidth, rowHeight, 2, 3.25, 5.5, "#C84", "CMSC128", 10, "Sans", "white");
+				var context = new Object();
+				context.c = c;
+				context.rowHeight = rowHeight;
+				context.colWidth = colWidth;
+				return context;
+			}
+			
+			function parseString(string){
+				
+				var colors = [
+					"#00008b",
+					"#008b8b",
+					"#a9a9a9",
+					"#006400",
+					"#bdb76b",
+					"#8b008b",
+					"#556b2f",
+					"#ff8c00",
+					"#9932cc",
+					"#8b0000",
+					"#e9967a",
+					"#9400d3"
+				];
+				var c = initializeSched(document.getElementById('sched'));
+				var pattern = /(Mon|Tue|Wed|Thu|Fri|Sat)\,(\d+):(\d+)\-(\d+):(\d+)\|?/gmi;
+				var res;
+				while(res = pattern.exec(string)){
+					var day=-2;
+					if(res[1] == "Mon") day=0;
+					else if(res[1] == "Tue") day=1;
+					else if(res[1] == "Wed") day=2;
+					else if(res[1] == "Thu") day=3;
+					else if(res[1] == "Fri") day=4;
+					else if(res[1] == "Sat") day=5;
+					var startHour = parseInt(res[2]);
+					if(startHour<7) startHour+=5;
+					else startHour-=7;
+					var startMinutes = parseInt(res[3])/60.00;
+					var endHour = parseInt(res[4]);
+					if(endHour<=7) endHour+=5;
+					else endHour-=7;
+					var endMinutes = parseInt(res[5])/60.00;
+					
+					drawSched(c.c, c.colWidth, c.rowHeight, day, startHour+startMinutes, endHour+endMinutes, colors.splice(1,1), "CMSC128", 10, "Sans", "white");
+				}
 				
 			}
