@@ -43,13 +43,19 @@ Models, Views, and Controllers
   * These shall be named after the table that they are accessing
   * Only one model should signify one table
   * Filenames should be the same as the classname of the model object
+  * Class names shall be the class name of the corresponding controller with the word "Model" appended
   * Filenames shall have the same capitalization as classnames
+  * Example of class name: TestModel
+  * Example of file name: TestModel.php
 
 ### Views
   * Filenames shall have no capitalization nor underscores
+  * Example of file name test.php
 
 ### Controllers
-  * These shall have the same name as the model that they use
+  * These shall have the same class name as the model that they use without the appended "Model"
   * Multiple controllers may use the same model or view
   * Filenames should be the same as the classname of the controller object
   * Filenames shall have the same capitalization as classnames
+  * Example of class name: Test
+  * Example of file name: Test.php
