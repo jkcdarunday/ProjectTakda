@@ -20,3 +20,4 @@
 						<a class="pure-button" href="<?php echo site_url('Home'); ?>">Home</a>
 				</div>
 			</div>
+		<div class="content pure-u-1 pure-u-md-4-5">
