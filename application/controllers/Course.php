@@ -17,6 +17,11 @@ class Course extends CI_Controller
 	public function index()
 	{
 		$this->load->helper('url');
+		$data = array();
+		if(isset($_GET['query'])){
+			$this->load->model('Course_model', '', TRUE);
+			$data['courses'] = $this->Course_model->search($_GET['query']);
+		}
 
 		$this->load->view('partials/opening');
 		$this->load->view('course',$data);
