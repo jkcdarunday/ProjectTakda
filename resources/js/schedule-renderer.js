@@ -32,6 +32,14 @@
 				context.closePath();
 			}
 			
+			function drawTextOffsetCentered(context, beginX, beginY, sizeX, sizeY, lineOffset, text, size, font, color){
+				context.beginPath();
+				context.font=size + "px " + font;
+				context.fillStyle=color;
+				context.fillText(text, beginX + (sizeX/2 - context.measureText(text).width/2), beginY + (sizeY/2) + (size/2) + lineOffset*size);
+				context.closePath();
+			}
+			
 			function drawSchedTop(context, colWidth, rowHeight, day, time){
 				var minutes = time%1.0;
 				var hours = Math.floor(time);
@@ -90,7 +98,7 @@
 				return bottom;
 			}
 			
-			function drawSched(context, colWidth, rowHeight, day, timeStart, timeEnd, color, text, textSize, textFont, textColor){
+			function drawSched(context, colWidth, rowHeight, day, timeStart, timeEnd, color, subject, section, textSize, textFont, textColor){
 				context.beginPath();
 				var topBegin = drawSchedTop(context, colWidth, rowHeight, day, timeStart);
 				var bottomEnd = drawSchedBottom(context, colWidth, rowHeight, day, timeEnd);
@@ -98,7 +106,8 @@
 				context.fill();
 				context.closePath();
 				
-				drawTextCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, text, textSize, textFont, textColor);
+				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, -0.6, subject, textSize, textFont, textColor);
+				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, 0.6, section, textSize, textFont, textColor);
 			}
 		
 			function initializeSched(sched){
@@ -137,33 +146,18 @@
 				return context;
 			}
 			
-			function parseString(string){
-				
-				var colors = [
-					"#00008b",
-					"#008b8b",
-					"#a9a9a9",
-					"#006400",
-					"#bdb76b",
-					"#8b008b",
-					"#556b2f",
-					"#ff8c00",
-					"#9932cc",
-					"#8b0000",
-					"#e9967a",
-					"#9400d3"
-				];
-				var c = initializeSched(document.getElementById('sched'));
+			function parseSchedule(schedule, subject, section, color){
 				var pattern = /(Mon|Tue|Wed|Thu|Fri|Sat)\,(\d+):(\d+)\-(\d+):(\d+)\|?/gmi;
 				var res;
-				while(res = pattern.exec(string)){
+				while(res = pattern.exec(schedule)){
+					res[1]=res[1].toLowerCase();
 					var day=-2;
-					if(res[1] == "Mon") day=0;
-					else if(res[1] == "Tue") day=1;
-					else if(res[1] == "Wed") day=2;
-					else if(res[1] == "Thu") day=3;
-					else if(res[1] == "Fri") day=4;
-					else if(res[1] == "Sat") day=5;
+					if(res[1] == "mon") day=0;
+					else if(res[1] == "tue") day=1;
+					else if(res[1] == "wed") day=2;
+					else if(res[1] == "thu") day=3;
+					else if(res[1] == "fri") day=4;
+					else if(res[1] == "sat") day=5;
 					var startHour = parseInt(res[2]);
 					if(startHour<7) startHour+=5;
 					else startHour-=7;
@@ -173,7 +167,7 @@
 					else endHour-=7;
 					var endMinutes = parseInt(res[5])/60.00;
 					
-					drawSched(c.c, c.colWidth, c.rowHeight, day, startHour+startMinutes, endHour+endMinutes, colors.splice(1,1), "CMSC128", 10, "Sans", "white");
+					drawSched(c.c, c.colWidth, c.rowHeight, day, startHour+startMinutes, endHour+endMinutes, color/*colors.splice(1,1)*/, subject, section, 10, "Sans", "white");
 				}
 				
 			}
