@@ -25,7 +25,7 @@ class Section extends CI_Controller
 		
 		
 		$this->load->view('partials/opening');
-		$this->load->view('section');
+		$this->load->view('section', $data);
 		$this->load->view('partials/closing');
 	}
 }
