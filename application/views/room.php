@@ -6,7 +6,7 @@
         <button type="submit" class="pure-button pure-button-primary">Search</button>
 	</fieldset>
 </form>
-<table class="pure-table pure-table-bordered">
+<table class="pure-table pure-table-bordered full-width">
     <thead>
         <tr>
             <th>Room</th>

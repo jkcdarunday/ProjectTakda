@@ -74,6 +74,10 @@ body{
 	text-align:justify;
 }
 
+.content .full-width{
+	width:100%;
+}
+
 /* Minimum width is dependent on the -md- specification for pure.css grids */
 @media (min-width: 48em) {
 	.menubar{
