@@ -6,7 +6,7 @@ class Room_model extends CI_Model {
 		$this->db->from('room');
 		$this->db->like('roomName',$keyword);
 		$this->db->or_like('building',$keyword);
-		$this->db->or_like('Floor',$keyword);
+		$this->db->or_like('floor',$keyword);
 		$query = $this->db->get();
 		return $query->result();
 	}
