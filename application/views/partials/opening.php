@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="<?php echo base_url('resources/css/pure-min.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/css/grids-responsive-min.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/css/style.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('resources/css/font-awesome.min.css'); ?>">
 		<script src="<?php echo base_url('resources/js/schedule-renderer.js'); ?>"></script>
 	</head>
 	<body>
