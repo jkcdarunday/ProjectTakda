@@ -11,6 +11,7 @@
         <tr>
             <th>Course Code</th>
             <th>Course Title</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -19,6 +20,7 @@
         <tr>
             <td><?php echo $item->courseCode; ?></td>
             <td><?php echo $item->courseTitle; ?></td>
+            <td><a class="pure-button pure-button-primary small-font" href="edit"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
         </tr>
 <?php endforeach; ?>
 	</tbody>

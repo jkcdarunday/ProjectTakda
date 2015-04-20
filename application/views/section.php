@@ -14,6 +14,7 @@
             <th>Room</th>
             <th>Instructor</th>
             <th>Type</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -25,6 +26,8 @@
             <td><?php echo $item->roomName; ?></td>
             <td><?php echo $item->firstName . " " . $item->middleName . " " . $item->lastName; ?></td>
             <td><?php echo $item->classification; ?></td>
+            <td><a class="pure-button pure-button-primary small-font" href="edit"><i class="fa fa-pencil-square-o"></i> Edit</a>
+            <a class="pure-button pure-button-primary small-font" href="swap"><i class="fa fa-arrows-h"></i> Swap</a></td>
         </tr>
 <?php endforeach; ?>
 	</tbody>

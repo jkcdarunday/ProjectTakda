@@ -12,6 +12,7 @@
             <th>Room</th>
             <th>Building</th>
             <th>Floor</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -21,6 +22,7 @@
             <td><?php echo $item->roomName; ?></td>
             <td><?php echo $item->building; ?></td>
             <td><?php echo $item->floor; ?></td>
+            <td><a class="pure-button pure-button-primary small-font" href="edit"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
         </tr>
 <?php endforeach; ?>
 	</tbody>
