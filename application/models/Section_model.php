@@ -7,6 +7,7 @@ class Section_model extends CI_Model {
 		$this->db->like('courseCode',$keyword);
 		$this->db->or_like('courseTitle',$keyword);
 		$this->db->join('room', 'section.roomId = room.roomId');
+		$this->db->join('subject', 'section.courseCode = subject.courseCode');
 		$this->db->join('user', 'section.employeeId = user.employeeId');
 		$query = $this->db->get();
 		return $query->result();
