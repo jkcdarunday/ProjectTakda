@@ -31,13 +31,17 @@ body{
 
 .menubar .menu .logo{
 	margin: auto;
+	opacity:0.8;
+	transition:1s opacity;
 }
 
-/* Subtitle should be thinner and smaller than the title */
-.menubar .menu .subtitle{
-	font-weight:300;
-	font-size:12pt;
-	opacity:0.8;
+.menubar .menu .logo:hover{
+	opacity:1.0;
+}
+
+.menubar .menu #logo{
+	margin:0px auto;
+	width:90%;
 }
 
 /* Make a smooth button with no background */
