@@ -16,10 +16,15 @@ class Room extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper('url'); 
+		$data = array();
+		if(isset($_GET['query'])){
+			$this->load->model('Room_model', '', TRUE);
+			$data['rooms'] = $this->Room_model->search($_GET['query']);
+		}
 		
 		$this->load->view('partials/opening');
-		$this->load->view('room');
+		$this->load->view('room', $data);
 		$this->load->view('partials/closing');
 	}
 }
