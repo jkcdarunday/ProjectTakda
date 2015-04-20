@@ -14,7 +14,6 @@
 				<div class="menu">
 					<div class="logo"><img id="logo" src="<?php echo base_url('resources/images/takda.png'); ?>"></div>
 					<div class="title">TaKDa</div>
-					<div class="subtitle">A Course and Teaching Load Management System</div>
 
 					<nav class="nav">
 						<a class="pure-button" href="<?php echo site_url('Home'); ?>">Home</a>
