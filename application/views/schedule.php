@@ -13,7 +13,7 @@
 	<script>
 		var c = initializeSched(document.getElementById('sched'));
 <?php foreach($schedules as $item): ?>
-		parseSchedule('<?php echo $item->schedule; ?>','<?php echo $item->courseCode; ?>','<?php echo $item->sectionCode;?>');
+		parseSchedule('<?php echo $item->schedule; ?>','<?php echo $item->courseCode; ?>','<?php if($type=="employee") echo $item->roomName; else echo $item->username; ?>','<?php echo $item->sectionCode;?>');
 <?php endforeach; ?>
 	</script>
 </div>

@@ -16,6 +16,7 @@ class Schedule extends CI_Controller
 	{
 		$this->load->helper('url');
 		$data['schedules'] = [];
+		$data['type'] = "room";
 		if(isset($_GET['roomid'])){
 			$this->load->model('Schedule_model', '', TRUE);
 			$data['schedules'] = $this->Schedule_model->getRoomSchedule($_GET['roomid']);
@@ -29,6 +30,7 @@ class Schedule extends CI_Controller
 	{
 		$this->load->helper('url');
 		$data['schedules'] = [];
+		$data['type'] = "employee";
 		if(isset($_GET['eid'])){
 			$this->load->model('Schedule_model', '', TRUE);
 			$data['schedules'] = $this->Schedule_model->getEmployeeSchedule($_GET['eid']);

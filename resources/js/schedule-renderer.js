@@ -116,7 +116,7 @@
 				return bottom;
 			}
 			
-			function drawSched(context, colWidth, rowHeight, day, timeStart, timeEnd, color, subject, section, textSize, textFont, textColor){
+			function drawSched(context, colWidth, rowHeight, day, timeStart, timeEnd, color, subject, midlabel, section, textSize, textFont, textColor){
 				context.beginPath();
 				var topBegin = drawSchedTop(context, colWidth, rowHeight, day, timeStart);
 				var bottomEnd = drawSchedBottom(context, colWidth, rowHeight, day, timeEnd);
@@ -124,8 +124,9 @@
 				context.fill();
 				context.closePath();
 				
-				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, -0.6, subject, textSize, textFont, textColor);
-				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, 0.6, section, textSize, textFont, textColor);
+				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, -1.2, subject, textSize, textFont, textColor);
+				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, 0.0, midlabel, textSize, textFont, textColor);
+				drawTextOffsetCentered(context, colWidth*(day+1), topBegin, colWidth, bottomEnd-topBegin, 1.2, section, textSize, textFont, textColor);
 			}
 		
 			function initializeSched(sched){
@@ -165,7 +166,7 @@
 				return context;
 			}
 			
-			function parseSchedule(schedule, subject, section){
+			function parseSchedule(schedule, subject, midlabel ,section){
 				var color;
 				if(subjectColors[subject] == undefined)
 					subjectColors[subject] = colors.splice(1,1);
@@ -190,7 +191,7 @@
 					else endHour-=7;
 					var endMinutes = parseInt(res[5])/60.00;
 					
-					drawSched(c.c, c.colWidth, c.rowHeight, day, startHour+startMinutes, endHour+endMinutes, color/*colors.splice(1,1)*/, subject, section, 10, "Sans", "white");
+					drawSched(c.c, c.colWidth, c.rowHeight, day, startHour+startMinutes, endHour+endMinutes, color/*colors.splice(1,1)*/, subject, midlabel, section, 10, "Sans", "white");
 				}
 				
 			}
