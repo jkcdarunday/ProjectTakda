@@ -18,6 +18,9 @@
 					<nav class="nav">
 						<a class="pure-button" href="<?php echo site_url('Home'); ?>">Home</a>
 						<a class="pure-button" href="<?php echo site_url('Schedule'); ?>">Schedule</a>
+						<a class="pure-button" href="<?php echo site_url('Room'); ?>">Rooms</a>
+						<a class="pure-button" href="<?php echo site_url('Course'); ?>">Courses</a>
+						<a class="pure-button" href="<?php echo site_url('Section'); ?>">Sections</a>
 					</nav>
 				</div>
 			</div>
