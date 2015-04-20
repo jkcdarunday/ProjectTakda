@@ -22,6 +22,7 @@
 						<a class="pure-button" href="<?php echo site_url('Room'); ?>">Rooms</a>
 						<a class="pure-button" href="<?php echo site_url('Course'); ?>">Courses</a>
 						<a class="pure-button" href="<?php echo site_url('Section'); ?>">Sections</a>
+						<a class="pure-button" href="<?php echo site_url('User'); ?>">Users</a>
 					</nav>
 				</div>
 			</div>
