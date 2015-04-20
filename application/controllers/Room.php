@@ -18,10 +18,12 @@ class Room extends CI_Controller
 	{
 		$this->load->helper('url'); 
 		$data = array();
-		if(isset($_GET['query'])){
-			$this->load->model('Room_model', '', TRUE);
-			$data['rooms'] = $this->Room_model->search($_GET['query']);
-		}
+		$query = "";
+		if(isset($_GET['query']))
+			$query = $_GET['query'];
+			
+		$this->load->model('Room_model', '', TRUE);
+		$data['rooms'] = $this->Room_model->search($query);
 		
 		$this->load->view('partials/opening');
 		$this->load->view('room', $data);

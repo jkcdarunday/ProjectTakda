@@ -17,11 +17,13 @@ class Section extends CI_Controller
 	public function index()
 	{
 		$this->load->helper('url');
-		$data = array();
-		if(isset($_GET['query'])){
-			$this->load->model('Section_model', '', TRUE);
-			$data['sections'] = $this->Section_model->search($_GET['query']);
-		}
+		$data = array(); 
+		$query = "";
+		if(isset($_GET['query']))
+			$query = $_GET['query'];
+			
+		$this->load->model('Section_model', '', TRUE);
+		$data['sections'] = $this->Section_model->search($query);
 		
 		
 		$this->load->view('partials/opening');

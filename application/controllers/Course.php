@@ -18,10 +18,12 @@ class Course extends CI_Controller
 	{
 		$this->load->helper('url');
 		$data = array();
-		if(isset($_GET['query'])){
-			$this->load->model('Course_model', '', TRUE);
-			$data['courses'] = $this->Course_model->search($_GET['query']);
-		}
+		$query = "";
+		if(isset($_GET['query']))
+			$query = $_GET['query'];
+			
+		$this->load->model('Course_model', '', TRUE);
+		$data['courses'] = $this->Course_model->search($query);
 
 		$this->load->view('partials/opening');
 		$this->load->view('course',$data);
