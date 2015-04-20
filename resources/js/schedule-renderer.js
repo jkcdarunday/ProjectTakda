@@ -1,3 +1,20 @@
+		var sourceColors = [
+			"#00008b",
+			"#008b8b",
+			"#a9a9a9",
+			"#006400",
+			"#bdb76b",
+			"#8b008b",
+			"#556b2f",
+			"#ff8c00",
+			"#9932cc",
+			"#8b0000",
+			"#e9967a",
+			"#9400d3"
+		];
+		
+		var colors = [];
+
 			function fillRectangle(context, offsetX, offsetY, sizeX, sizeY, color){
 				context.beginPath();
 				context.rect(offsetX, offsetY, sizeX, sizeY);
@@ -112,6 +129,7 @@
 		
 			function initializeSched(sched){
 				var c=sched.getContext("2d");
+				colors = Object.create(sourceColors);
 				
 				rowHeight = sched.height/13;
 				colWidth = sched.width/7;
@@ -146,7 +164,8 @@
 				return context;
 			}
 			
-			function parseSchedule(schedule, subject, section, color){
+			function parseSchedule(schedule, subject, section){
+				var color = colors.splice(1,1);
 				var pattern = /(Mon|Tue|Wed|Thu|Fri|Sat)\,(\d+):(\d+)\-(\d+):(\d+)\|?/gmi;
 				var res;
 				while(res = pattern.exec(schedule)){
