@@ -2,9 +2,9 @@
 class Section_model extends CI_Model {
 
 	function search($keyword){ 
-		$this->db->select('schedule, courseCode, sectionCode, roomName, firstName, middleName, lastName, classification');
+		$this->db->select('schedule, section.courseCode, sectionCode, roomName, firstName, middleName, lastName, classification');
 		$this->db->from('section');
-		$this->db->like('courseCode',$keyword);
+		$this->db->like('section.courseCode',$keyword);
 		$this->db->or_like('courseTitle',$keyword);
 		$this->db->join('room', 'section.roomId = room.roomId');
 		$this->db->join('subject', 'section.courseCode = subject.courseCode');
