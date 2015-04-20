@@ -14,6 +14,7 @@
 		];
 		
 		var colors = [];
+		var subjectColors = {};
 
 			function fillRectangle(context, offsetX, offsetY, sizeX, sizeY, color){
 				context.beginPath();
@@ -165,7 +166,10 @@
 			}
 			
 			function parseSchedule(schedule, subject, section){
-				var color = colors.splice(1,1);
+				var color;
+				if(subjectColors[subject] == undefined)
+					subjectColors[subject] = colors.splice(1,1);
+				color = subjectColors[subject];
 				var pattern = /(Mon|Tue|Wed|Thu|Fri|Sat)\,(\d+):(\d+)\-(\d+):(\d+)\|?/gmi;
 				var res;
 				while(res = pattern.exec(schedule)){
