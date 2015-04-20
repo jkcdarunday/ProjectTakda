@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-<?php if(isset($sections)) foreach($sections as $item): ?>
+<?php if(isset($rooms)) foreach($rooms as $item): ?>
         <tr>
             <td><?php echo $item->roomName; ?></td>
             <td><?php echo $item->building; ?></td>
