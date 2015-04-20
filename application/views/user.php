@@ -1,7 +1,7 @@
 <form class="pure-form" method="get" action="?">
     <fieldset>
         <legend>Search Users</legend>
-        <input name="query" id="query" type="text" placeholder="Section Name">
+        <input name="query" id="query" type="text" placeholder="Search Term">
         <input name="type" id="type" type="hidden" value="search">
         <button type="submit" class="pure-button pure-button-primary">Search</button>
 	</fieldset>
